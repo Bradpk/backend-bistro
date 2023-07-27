@@ -55,18 +55,23 @@ WONT:
 
 VIEWS: 
 
-1: All_Menu_Items
+1: Get_Menu_Items
+- Stores a list of data that corrispond to different information about the menu items 
 
-
-MODELS: 
+MODELS / TABLES: 
 
 1: MenuItems 
+- The main table 
+- Will retrieve info from the category and cuisine table
 
 2: Category 
+- This table will be linked to Menuitems
 
 3: Cuisine 
+- This table will be linked to Menuitems
 
 4: Location 
+- This table will be linked to Menuitems
 
 
 URLS: 
