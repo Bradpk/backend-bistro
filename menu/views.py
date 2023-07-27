@@ -25,11 +25,11 @@ def get_menu(request):
         data.append({
             'title': item.title,
             'description': item.description,
-            'price': float(item.price), 
+            'price': float(item.price),
             'spicy_level': item.spicy_level,
             'category': item.category.name,
             'cuisine': item.cuisine.name,
         })
 
     return JsonResponse(data, safe=False)
-    
+
