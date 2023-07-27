@@ -10,5 +10,5 @@ def index(request):
     return HttpResponse("Hello, world. You're at the polls index.")
 
 def get_table(request):
-    getit = list(TestTable.object.values())
+    getit = list(TestTable.objects.values())
     return JsonResponse({'data': getit})
