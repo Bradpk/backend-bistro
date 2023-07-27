@@ -4,29 +4,39 @@ from django.db import models
 
 class TestTable(models.Model):
     name = models.CharField(max_length=200, null=False, blank=False, unique=True)
-
-
-# field should match data type 
-
-class MenuItems(models.Model):
-    title = models.CharField(max_length=200, null=False, blank=False, unique=True)
-    description = models.CharField(max_length=200, null=False, blank=False, unique=True)
-    price = models.CharField(max_length=200, null=False, blank=False, unique=True)
-    #fktocategory = models.CharField(max_length=200, null=False, blank=False, unique=True)  <--- WTF is FK to Category
-    #fktocuisine = models.CharField(max_length=200, null=False, blank=False, unique=True)   <--- WTF is FK to Cuisine
-     
-
-
+#-------------------------------------------------------------------------------------------------------------------------------
+class TestTableTwo(models.Model):
+    name = models.CharField(max_length=200, null=False, blank=False, unique=True)
+#-------------------------------------------------------------------------------------------------------------------------------
+class TestTableThree(models.Model):
+    name = models.CharField(max_length=200, null=False, blank=False, unique=True)
+#-------------------------------------------------------------------------------------------------------------------------------
 class Category(models.Model):
-    appetizer = models.CharField(max_length=200, null=False, blank=False, unique=True)
-    dessert = models.CharField(max_length=200, null=False, blank=False, unique=True)
-    maindish = models.CharField(max_length=200, null=False, blank=False, unique=True)
-# What is this and what else is needed
+    name = models.CharField(max_length=100)
 
-
+    def __str__(self):
+        return self.name
+#-------------------------------------------------------------------------------------------------------------------------------
 class Cuisine(models.Model):
-        american = models.CharField(max_length=200, null=False, blank=False, unique=True)
-        thai = models.CharField(max_length=200, null=False, blank=False, unique=True)
-# What is this and what else is needed
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+#-------------------------------------------------------------------------------------------------------------------------------
+class MenuItem(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    spicy_level = models.IntegerField()
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    cuisine = models.ForeignKey(Cuisine, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title
+
+
+
+
+
 
 
