@@ -18,7 +18,7 @@ def get_table(request):
 
 
 def get_menu(request):
-    menu_items = MenuItem.objects.select_related('category', 'cuisine').all()
+    menu_items = MenuItem.objects.select_related().all()
     data = []
 
     for item in menu_items:
