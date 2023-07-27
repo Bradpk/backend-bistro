@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import TestTable
+from .models import TestTable, MenuItem
 # MenuItem, Category, Cuisine
 
 from django.http import HttpResponse, JsonResponse
@@ -17,5 +17,19 @@ def get_table(request):
 
 
 
-# def get_menu(request):
+def get_menu(request):
+    menu_items = MenuItem.objects.select_related('category', 'cuisine').all()
+    data = []
+
+    for item in menu_items:
+        data.append({
+            'title': item.title,
+            'description': item.description,
+            'price': float(item.price),  # Convert Decimal to float for JSON serialization
+            'spicy_level': item.spicy_level,
+            'category': item.category.name,
+            'cuisine': item.cuisine.name,
+        })
+
+    return JsonResponse(data, safe=False)
     
