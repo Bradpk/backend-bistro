@@ -6,6 +6,8 @@ class TestTable(models.Model):
     name = models.CharField(max_length=200, null=False, blank=False, unique=True)
 
 
+# field should match data type 
+
 class MenuItems(models.Model):
     title = models.CharField(max_length=200, null=False, blank=False, unique=True)
     description = models.CharField(max_length=200, null=False, blank=False, unique=True)
