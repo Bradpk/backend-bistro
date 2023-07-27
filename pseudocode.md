@@ -50,3 +50,31 @@ COULD:
 WONT: 
 
 1: Some funky bass riffs
+
+
+
+VIEWS: 
+
+1: All_Menu_Items
+
+
+MODELS: 
+
+1: MenuItems 
+
+2: Category 
+
+3: Cuisine 
+
+4: Location 
+
+
+URLS: 
+
+1: menu_items/
+2: breakfast/
+3: lunch/
+4: dinner/
+5: appetizers/
+
+
