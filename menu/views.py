@@ -27,4 +27,3 @@ def get_menu(request):
         })
 
     return JsonResponse(data, safe=False)
-
